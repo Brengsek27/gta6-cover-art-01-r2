@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141419">
+  <title>Vice Heat Studio — Your city. Your cover.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23ee86ac'/%3E%3Ctext x='5' y='27' font-size='22' font-weight='900' font-style='italic'%3EVH%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><b class="brandmark">VH</b><span>VICE HEAT <em>STUDIO</em><small>YOUR CITY. YOUR COVER.</small></span></a>
+    <div class="project-name"><span class="status-dot"></span> Untitled cover <span class="project-tag">LOCAL PROJECT</span></div>
+    <div class="top-actions"><span class="offline"><i></i> 100% offline</span><button id="export" class="primary">↗ &nbsp; Export PNG</button></div>
+  </header>
+  <main class="studio">
+    <aside class="layout-rail">
+      <div class="section-heading"><h2>THE BLUEPRINT</h2><span>01—09</span></div>
+      <p class="muted">Pick your opening scene.</p>
+      <div id="layouts" class="layout-grid"></div>
+      <div class="rail-note"><span>✳</span><strong>Made for the main character.</strong><p>Your photos, reimagined.<br>No accounts. No uploads.<br>Just a little coastal chaos.</p></div>
+      <div class="rail-foot">VICE HEAT ORIGINALS <span>© 2026</span></div>
+    </aside>
+    <section class="workspace" aria-label="Cover preview">
+      <div class="stage-toolbar"><div><span class="live-dot"></span> LIVE PREVIEW <span id="layout-name">/ SLASH</span></div><span id="dimensions">1920 × 1080</span></div>
+      <div class="canvas-space"><div class="canvas-wrap"><canvas id="cover" width="1920" height="1080" aria-label="Your editable Vice Heat cover"></canvas></div></div>
+      <div class="stage-bottom"><span>↔ &nbsp; Click a panel to select · Drag to reframe</span><button id="fit" class="subtle">⤢ &nbsp; Fit to view</button></div>
+      <section class="photo-dock"><div class="dock-label"><strong>YOUR CAST</strong><span id="photo-count">6 PHOTOS</span></div><div id="photos" class="photos"></div><button id="add" class="add-photo" title="Add your own photos">＋<small>ADD PHOTO</small></button></section>
+      <div class="workspace-footer"><span>BUILT FOR LATE NIGHTS & LOUD STORIES.</span><span>✦ &nbsp; ALL ORIGINAL LETTERING</span></div>
+    </section>
+    <aside class="controls">
+      <div class="control-title"><h2>MAKE IT YOURS</h2><span>✦</span></div>
+      <section class="control-section"><div class="section-heading"><h3>01 &nbsp; THE STORY</h3><span>TYPE</span></div>
+        <label for="title">Cover title</label><input id="title" maxlength="30" value="VICE HEAT">
+        <label for="subtitle">Neon subtitle</label><input id="subtitle" maxlength="40" value="NEON CONFESSION">
+        <label for="quote">Review quote</label><textarea id="quote" rows="2" maxlength="110"></textarea>
+      </section>
+      <section class="control-section"><div class="section-heading"><h3>02 &nbsp; THE ATMOSPHERE</h3><span>GRADE</span></div>
+        <label for="grade">Colour treatment</label><select id="grade"></select>
+        <label for="grain" class="range-label">Film grain <output id="grain-value">20</output></label><input id="grain" type="range" min="0" max="70" value="20">
+      </section>
+      <section class="control-section panel-controls"><div class="section-heading"><h3>03 &nbsp; THE FRAME</h3><span id="panel-number">PANEL 01</span></div>
+        <label for="assignment">Photo in selected panel</label><select id="assignment"></select>
+        <label for="zoom" class="range-label">Zoom <output id="zoom-value">100%</output></label><input id="zoom" type="range" min="100" max="240" value="100">
+        <div class="frame-actions"><button id="reset">↺ Reset framing</button><button id="replace">Replace</button><button id="remove">Remove</button></div>
+      </section>
+      <section class="control-section output-section"><div class="section-heading"><h3>04 &nbsp; THE RELEASE</h3><span>PNG</span></div>
+        <label for="size">Canvas size</label><select id="size"><option value="1920x1080">Landscape · 1920 × 1080</option><option value="1080x1350">Portrait · 1080 × 1350</option><option value="1080x1080">Square · 1080 × 1080</option></select>
+        <div class="export-options"><button id="all-sizes">↓ All 3 sizes</button><button id="copy">▣ Copy PNG</button></div>
+      </section>
+      <p class="privacy-note">⌁ &nbsp; Your photos stay on this device.</p>
+    </aside>
+  </main>
+  <input id="files" type="file" accept="image/*" multiple hidden>
+  <div id="toast" role="status"></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
